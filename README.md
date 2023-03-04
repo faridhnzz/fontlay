@@ -24,7 +24,8 @@ Change the domain name from `googleapis.com` to `fontlay.com`.
 With
 
 ```html
-<link rel="preconnect" href="https://fontlay.com" crossorigin /> <link rel="stylesheet" href="https://fontlay.com/css2?family=Roboto&display=swap" />
+<link rel="preconnect" href="https://fontlay.com" crossorigin /> 
+<link rel="stylesheet" href="https://fontlay.com/css2?family=Roboto&display=swap" />
 ```
 
 ## 📄 License
