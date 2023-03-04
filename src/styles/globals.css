@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    @apply flex flex-col min-h-screen font-Jakarta mx-auto transition duration-200;
+  }
+}
+
+@layer components {
+  .btn-theme {
+    @apply flex cursor-pointer items-center justify-center rounded-lg border-0 bg-slate-600 px-3 py-2 text-lg shadow-lg transition duration-200 hover:bg-slate-700 focus:outline-none dark:bg-yellow-500 dark:hover:bg-yellow-600 dark:shadow-lg dark:shadow-yellow-500/40;
+  }
+}
