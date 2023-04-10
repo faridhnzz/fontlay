@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { IoIosHeart } from 'react-icons/io';
+import Link from "next/link";
+import { IoIosHeart } from "react-icons/io";
 
 export default function HSupport() {
   return (
@@ -10,7 +10,7 @@ export default function HSupport() {
 
       <button className="btn gap-2 btn-warning">
         <IoIosHeart className="h-6 w-6 text-red-500" />
-        Support
+        <span className="hidden md:inline">Support</span>
       </button>
     </Link>
   );

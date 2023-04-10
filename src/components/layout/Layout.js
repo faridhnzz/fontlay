@@ -1,10 +1,10 @@
-import Navbar from '../Navbar';
-import Footer from '../footer';
+import Navbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 
 export default function Layout({ children }) {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <main className="container flex-grow">{children}</main>
       <Footer />
     </>

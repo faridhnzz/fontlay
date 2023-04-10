@@ -18,14 +18,20 @@ Change the domain name from `googleapis.com` to `fontlay.com`.
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 With
 
 ```html
-<link rel="preconnect" href="https://fontlay.com" crossorigin /> 
-<link rel="stylesheet" href="https://fontlay.com/css2?family=Roboto&display=swap" />
+<link rel="preconnect" href="https://fontlay.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fontlay.com/css2?family=Roboto&display=swap"
+/>
 ```
 
 ## 📄 License
