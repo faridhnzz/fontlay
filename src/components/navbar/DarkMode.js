@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { BsSun, BsMoon } from "react-icons/bs";
 
 export default function HDarkMode() {
   const [mounted, setMounted] = useState(false);
@@ -9,25 +8,24 @@ export default function HDarkMode() {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
-  const handleChange = () => {
-    return setTheme(theme === "light" ? "dracula" : "light");
+  const toggleTheme = () => {
+    return setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (
-    <div className="btn btn-ghost justify-center">
-      <label className="swap swap-rotate">
-        <input className="h-2 w-4" type="checkbox" onClick={handleChange} />
-        <Sun />
-        <Moon />
-      </label>
-    </div>
+    <button
+      className="group inline-flex flex-shrink-0 justify-center items-center h-9 w-9 font-medium rounded-full text-gray-800 hover:bg-gray-300 dark:text-gray-200 dark:hover:bg-gray-800"
+      onClick={toggleTheme}
+    >
+      {theme === "dark" ? <Sun /> : <Moon />}
+    </button>
   );
 }
 
 function Sun() {
   return (
     <svg
-      className="swap-on fill-current w-8 h-8"
+      className="fill-current w-6 h-6"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >
@@ -39,7 +37,7 @@ function Sun() {
 function Moon() {
   return (
     <svg
-      className="swap-off fill-current w-8 h-8"
+      className="fill-current w-6 h-6"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >

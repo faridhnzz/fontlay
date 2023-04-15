@@ -12,7 +12,7 @@
   body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    @apply flex flex-col min-h-screen font-Jakarta mx-auto transition duration-200;
+    @apply flex flex-col dark:text-white bg-slate-100 dark:bg-slate-900 min-h-screen font-Jakarta mx-auto transition duration-200;
   }
 }
 

@@ -21,48 +21,47 @@ const snsLink = [
 
 export default function Footer() {
   return (
-    <footer className="footer footer-center mt-20 pt-10 pb-4 text-base-content border-collapse border-t border-gray-300">
-      {/* <div className="grid grid-flow-col gap-4">
-        <a className="link link-hover">Status Network</a>
-        <a className="link link-hover">Faq</a>
-      </div> */}
-
-      <div className="grid grid-flow-col gap-4">
-        {snsLink.map((item) => {
-          return (
-            <a
-              key={item.link}
-              href={item.link}
-              target="_blank"
-              className=" transition hover:opacity-75"
+    <>
+      <footer className="footer footer-center pb-6">
+        <div className="grid grid-flow-col gap-4">
+          {snsLink.map((item) => {
+            return (
+              <a
+                key={item.link}
+                href={item.link}
+                target="_blank"
+                className=" transition hover:opacity-75"
+              >
+                <span className="sr-only">{item.title}</span>
+                <span className="fill-current text-2xl md:text-3xl">
+                  {item.icon}
+                </span>
+              </a>
+            );
+          })}
+        </div>
+        <div className="cursor-default text-xs md:text-sm">
+          <p>this project not affiliated and associated with Google.</p>
+          <p className="d-none d-lg-inline">
+            &copy; {new Date().getFullYear()}
+            {"  "}
+            <span
+              className="tooltip cursor-pointer font-bold hover:text-teal-400"
+              data-tip={`V.${packageJson?.version}`}
             >
-              <span className="sr-only">{item.title}</span>
-              <span className="fill-current text-3xl">{item.icon}</span>
+              Fontlay
+            </span>{" "}
+            - Made with ❤️ by{" "}
+            <a
+              href="https://fayln.com/?utc"
+              rel="me"
+              className="link-hover hover:text-teal-400"
+            >
+              Farid Nizam
             </a>
-          );
-        })}
-      </div>
-      <div className="cursor-default">
-        <p>this project not affiliated and associated with Google.</p>
-        <p className="d-none d-lg-inline">
-          &copy; {new Date().getFullYear()}
-          {"  "}
-          <span
-            className="tooltip cursor-pointer font-bold"
-            data-tip={`V.${packageJson?.version}`}
-          >
-            Fontlay
-          </span>{" "}
-          - Made with ❤️ by{" "}
-          <a
-            href="https://fayln.com"
-            rel="me"
-            className="link hover:text-teal-600"
-          >
-            Fayln
-          </a>
-        </p>
-      </div>
-    </footer>
+          </p>
+        </div>
+      </footer>
+    </>
   );
 }
