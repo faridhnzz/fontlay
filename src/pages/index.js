@@ -1,65 +1,103 @@
-import Link from 'next/link';
-import Layout from '@/components/layout';
-import Card from '@/components/card/card';
-import { IoLink } from 'react-icons/io5';
-import { RiGlobalLine } from 'react-icons/ri';
-import { FaCompress } from 'react-icons/fa';
-import { GiLogging } from 'react-icons/gi';
-import { MdOutlinePrivateConnectivity } from 'react-icons/md';
+import Link from "next/link";
+import Layout from "@/components/layout/Layout";
+import Hero from "@/components/common/Hero";
+import Card from "@/components/common/Card";
+import Grid2Cols from "@/components/common/Grid2Cols";
+import AnnouncementBanner from "@/components/common/AnnouncementBanner";
+import { RiGitRepositoryPrivateFill } from "react-icons/ri";
+import { FaCompress, FaGlobeAsia } from "react-icons/fa";
+import { GiLogging } from "react-icons/gi";
+
+const CardDest = [
+  {
+    icon: <FaGlobeAsia size={40} />,
+    title: "Globally",
+    desc: "CSS and Fonts files cached in CDN and it's superfast.",
+  },
+  {
+    icon: <FaCompress size={40} />,
+    title: "Compression",
+    desc: "Using gzip for file compression and CSS files are optimized and minified.",
+  },
+  {
+    icon: <GiLogging size={40} />,
+    title: "Zero Logging",
+    desc: "We are not logging your traffic to push your privacy to the next level.",
+  },
+  {
+    icon: <RiGitRepositoryPrivateFill size={40} />,
+    title: "Private and Secure",
+    desc: "All traffic on this site is encrypted.",
+  },
+];
 
 export default function Home() {
   return (
-    <Layout>
-      <section className="hero min-h-[70vh] my-12 flex flex-col items-center">
-        <div className="hero-content text-center mx-auto w-full">
-          <div className="cursor-default">
-            <div className="mx-auto flex w-full max-w-xl justify-center">
-              {/* <div className="mask mask-circle p-20 bg-warning"></div> */}
-              <h1 className="text-5xl text-emerald-500 font-black leading-tighter tracking-tighter uppercase">fontlay</h1>
+    <>
+      <Layout>
+        <Hero>
+          <div className="flex flex-col max-w-6xl">
+            <AnnouncementBanner desc="Development - Coming Soon" />
+            <div className="flex w-full max-w-xl justify-center">
+              <h1 className="block font-bold text-5xl md:text-5xl lg:text-7xl tracking-tighter uppercase cursor-default text-transparent bg-clip-text bg-gradient-to-r from-[#3aa9f8] to-[#2a5bce]">
+                fontlay
+              </h1>
             </div>
-            <div className="mx-auto flex w-full max-w-xl cursor-default justify-center">
-              <h2 className="py-6 text-xl">
-                A simple Google Fonts proxy and privacy-friendly. <br className="hidden md:inline" /> Prevent your users from being tracked and push your privacy.
+            <div className="flex w-full max-w-xl cursor-default text-center">
+              <h2 className="py-6 text-xl text-gray-600 dark:text-gray-300">
+                A simple Google Fonts proxy. <br className="hidden md:inline" />{" "}
+                Prevent your users from being tracked and privacy-friendly.
               </h2>
             </div>
-            <div className="pt-8 text-center">
-              <div className="mockup-code">
-                <p className="text-lg md:text-xl font-bold">Change Google Font</p>
-                <pre className="bg-gray-900 text-gray-50 max-w-[20rem] md:max-w-lg mx-auto mt-5 py-4 rounded text-base sm:text-lg md:text-xl">
-                  <code>https://fonts.googleapis.com</code>
+            <div className="pt-8 text-center cursor-default max-w-3xl">
+              <div className="mockup-code text-primary-content">
+                <p className="text-lg md:text-xl font-bold">
+                  Change Google Font
+                </p>
+                <pre className="bg-[#001f26] text-white max-w-sm lg:max-w-lg mx-auto mt-5 py-4 rounded">
+                  <code className="text-sm sm:text-lg md:text-xl cursor-text">
+                    https://fonts.googleapis.com
+                  </code>
                 </pre>
                 <p className="text-lg md:text-xl font-bold my-5">With</p>
-                <pre className="bg-gray-900 text-gray-50 max-w-[20rem] md:max-w-lg mx-auto mt-5 py-4 rounded text-base sm:text-lg md:text-xl">
-                  <code>https://fontlay.com</code>
+                <pre className="bg-[#001f26] text-white max-w-sm lg:max-w-lg mx-auto mt-5 py-4 rounded">
+                  <code className="text-sm sm:text-lg md:text-xl cursor-text">
+                    https://fontlay.com
+                  </code>
                 </pre>
               </div>
             </div>
-            <h3 className="pt-3 pl-3 justify-center items-center">
-              {/* <IoLink className="md:-rotate-45 md:text-rose-700 md:text-xl md:m-auto md:inline-block hidden" /> */}
-              Try it now:
-              <a href="#" className="link text-blue-600 pl-1">
+            <h3 className="pt-3 pl-3 justify-center items-center text-center">
+              <span className="cursor-default">Try it now:</span>
+              <Link
+                href="/css2?family=Roboto&display=swap"
+                className="link text-blue-600 pl-1"
+              >
                 https://fontlay.com/css2?family=Roboto&display=swap
-              </a>
+              </Link>
             </h3>
           </div>
-        </div>
-      </section>
+        </Hero>
 
-      <section className="hero min-h-[74vh]">
-        <div className="hero-content text-center mx-auto w-full">
-          <div className="cursor-default max-w-2xl">
+        <Hero>
+          <div className="cursor-default text-center max-w-2xl dark:text-white">
             <h1 className="text-4xl font-bold">Control of your fonts</h1>
             <h2 className="py-6 text-xl">Raise your privacy.</h2>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-1 break-words">
-              <Card Icon={<RiGlobalLine className="w-10 h-10" />} title="Globally" desc="CSS and Fonts files cached in CDN and it's superfast. Use same endpoint fontlay.com" />
-              <Card Icon={<FaCompress className="w-10 h-10" />} title="Compression" desc="Using brotli and gzip for file compression and CSS files are optimized and minified." />
-              <Card Icon={<GiLogging className="w-10 h-10" />} title="Zero Logging " desc="We are not logging your traffic to push your privacy to the next level." />
-              <Card Icon={<MdOutlinePrivateConnectivity className="w-10 h-10" />} title="Private and Secure" desc="All traffic on this site is encrypted. (https & ssl)" />
-              {/* <Card title="Endpoint" desc="CSS and Fonts use same endpoit (fontlay.com)" /> */}
-            </div>
+            <Grid2Cols>
+              {CardDest.map((item) => {
+                return (
+                  <Card
+                    key={item.title}
+                    icon={item.icon}
+                    title={item.title}
+                    desc={item.desc}
+                  />
+                );
+              })}
+            </Grid2Cols>
           </div>
-        </div>
-      </section>
-    </Layout>
+        </Hero>
+      </Layout>
+    </>
   );
 }
