@@ -7,7 +7,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
       - name: Deploy to ponyo server
         uses: appleboy/ssh-action@master
         with:
@@ -24,17 +23,21 @@ jobs:
 
       # Notification
       - name: Success Notification
-        uses: appleboy/discord-action@master
+        uses: sarisia/actions-status-discord@master
         with:
-          webhook_id: ${{ secrets.DISCORD_ID }}
-          webhook_token: ${{ secrets.DISCORD_TOKEN }}
-          color: "#99FF66"
-          message: "🎉 Deploy to Ponyo server successfully."
+          webhook: ${{ secrets.WEBHOOK_URL }}
+          status: "Success"
+          title: "deploy fontlay 🎉"
+          description: "Deploy fontlay front-end to ponyo server."
+          color: 0x99FF66
+          url: "https://fontlay.com"
       - name: Failed Notification
         if: ${{ failure() }}
-        uses: appleboy/discord-action@master
+        uses: sarisia/actions-status-discord@master
         with:
-          webhook_id: ${{ secrets.DISCORD_ID }}
-          webhook_token: ${{ secrets.DISCORD_TOKEN }}
-          color: "#F44336"
-          message: "🥵 Deploy to Ponyo server Failed!"
+          webhook: ${{ secrets.WEBHOOK_URL }}
+          status: "Failure"
+          content: "Hey <@&735080822465495090>"
+          title: "deploy fontlay 🥵"
+          description: "Failed to deploy fontlay front-end."
+          color: 0xF44336
