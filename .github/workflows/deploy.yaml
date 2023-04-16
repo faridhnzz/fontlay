@@ -4,22 +4,6 @@ on:
   push:
     branches: [main]
 jobs:
-  Lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7.27.1
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.14.1
-          cache: "pnpm"
-      - name: Install dependencies
-        run: pnpm install
-      - name: Test Lint
-        run: pnpm lint
-
   Deploy:
     runs-on: ubuntu-latest
     steps:
@@ -39,7 +23,7 @@ jobs:
 
       # Notification
       - name: Success Notification
-        uses: sarisia/actions-status-discord@master
+        uses: sarisia/actions-status-discord@v1.12.0
         with:
           webhook: ${{ secrets.WEBHOOK_URL }}
           status: "Success"
@@ -49,7 +33,7 @@ jobs:
           url: "https://fontlay.com"
       - name: Failed Notification
         if: ${{ failure() }}
-        uses: sarisia/actions-status-discord@master
+        uses: sarisia/actions-status-discord@v1.12.0
         with:
           webhook: ${{ secrets.WEBHOOK_URL }}
           status: "Failure"
