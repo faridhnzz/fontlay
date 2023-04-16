@@ -4,7 +4,23 @@ on:
   push:
     branches: [main]
 jobs:
-  deploy:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.27.1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.1
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+      - name: Test Lint
+        run: pnpm lint
+
+  Deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to ponyo server
