@@ -9,7 +9,8 @@
     "lint": "next lint",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "prettier": "npx prettier --write . \"src/**/*.js\"",
-    "prettier:check": "npx prettier --check \"src/**/*.js\""
+    "prettier:check": "npx prettier --check \"src/**/*.js\"",
+    "deploy:prod": "pnpm build && pm2 start ecosystem.config.js --env production"
   },
   "dependencies": {
     "@next/font": "13.1.6",
