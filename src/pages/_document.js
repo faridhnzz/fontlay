@@ -4,21 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link
-          rel="preconnect"
-          href="https://fonts.bunny.net"
-          crossOrigin="true"
-        />
-
+        <link rel="preconnect" href="https://fontlay.com" crossOrigin="true" />
         <link
           rel="stylesheet"
-          href="https://fonts.bunny.net/css?family=plus-jakarta-sans:200,300,400,500,600,700|saira:100,200,300,400,500,600,700"
+          href="https://fontlay.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Saira:wght@200&display=swap"
         />
-
-        {/* <link
-          rel="stylesheet"
-          href={`https://fontlay.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Saira:wght@200&display=swap`}
-        /> */}
       </Head>
       <body>
         <Main />
