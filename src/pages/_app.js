@@ -9,25 +9,41 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={`${process.env.DOMAIN || "http://localhost:3000"}/favicon.ico`}
+        />
+        <link
+          rel="apple-touch-icon"
+          href={`${
+            process.env.DOMAIN || "http://localhost:3000"
+          }/apple-touch-icon.png`}
+        />
+        <link
+          rel="manifest"
+          href={`${
+            process.env.DOMAIN || "http://localhost:3000"
+          }/site.webmanifest`}
+        />
       </Head>
 
       <NextSeo
         title="Fontlay - A simple Google Fonts proxy"
         description="A simple Google Fonts proxy. Prevent your users from being tracked and privacy-friendly. The CDN for Open Source Fonts."
-        canonical="https://fontlay.com/"
+        canonical={process.env.DOMAIN || "http://localhost:3000"}
         themeColor="#2a5bce"
         openGraph={{
           type: "website",
-          url: "https://fontlay.com/",
+          url: process.env.DOMAIN || "http://localhost:3000",
           title: "Fontlay - A simple Google Fonts proxy",
           description:
             "A simple Google Fonts proxy. Prevent your users from being tracked and privacy-friendly. The CDN for Open Source Fonts.",
           images: [
             {
-              url: "/og-fotnlay.png",
+              url: `${
+                process.env.DOMAIN || "http://localhost:3000"
+              }/og-fotnlay.png`,
               width: 666,
               height: 666,
               alt: "Fontlay",
