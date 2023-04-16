@@ -20,7 +20,7 @@ jobs:
             git pull origin main
             git status
             pnpm install
-            pm2 reload ecosystem.config.js --env production
+            pnpm deploy:prod
 
       # Notification
       - name: Success Notification
