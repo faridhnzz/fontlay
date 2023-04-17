@@ -27,7 +27,7 @@ jobs:
         with:
           webhook: ${{ secrets.WEBHOOK_URL }}
           status: "Success"
-          title: "deploy fontlay 🎉"
+          title: "fontlay front-end 🎉"
           description: "Deploy fontlay front-end to ponyo server."
           color: 0x99FF66
           url: "https://fontlay.com"
@@ -38,6 +38,6 @@ jobs:
           webhook: ${{ secrets.WEBHOOK_URL }}
           status: "Failure"
           content: "Hey <@&735080822465495090>"
-          title: "deploy fontlay 🥵"
+          title: "fontlay front-end 🥵"
           description: "Failed to deploy fontlay front-end."
           color: 0xF44336
