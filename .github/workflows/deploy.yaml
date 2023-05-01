@@ -58,7 +58,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd ${{ secrets.SSH_HOST }}/project/fontlay
+            cd /${{ secrets.SSH_HOST }}/project/fontlay
             git pull origin main
             git status
             printf "%s" "${{ secrets.FONTLAY_ENV }}" > "./.env"
