@@ -30,13 +30,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
-    "javascript-obfuscator": "^4.0.2",
     "next-sitemap": "^4.0.2",
     "next-themes": "^0.2.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.4",
-    "tailwindcss": "^3.2.7",
-    "webpack-obfuscator": "^3.5.1"
+    "tailwindcss": "^3.2.7"
   }
 }
