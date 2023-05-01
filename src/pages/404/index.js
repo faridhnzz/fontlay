@@ -15,6 +15,7 @@ export default function Page404() {
                   maxWidth: '100%',
                   height: 'auto',
                 }}
+                alt="404"
                 src={'/img/hdd.png'}
                 width={'480'}
                 height={'480'}
