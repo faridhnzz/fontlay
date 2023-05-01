@@ -1,6 +1,6 @@
 # Fontlay
 
-A simple Google Fonts proxy and privacy-friendly. Prevent your users from being tracked and push your privacy.
+Fontlay is a Google Fonts alternative. With a zero-logging policy to prevent your users from being tracked, open-source, privacy-first to helps you push your privacy to the next level.
 
 ## 🏷️ Feature
 
@@ -19,9 +19,8 @@ Change the domain name from `googleapis.com` to `fontlay.com`.
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
   rel="stylesheet"
-/>
+  href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" />
 ```
 
 With
@@ -30,8 +29,7 @@ With
 <link rel="preconnect" href="https://fontlay.com" crossorigin />
 <link
   rel="stylesheet"
-  href="https://fontlay.com/css2?family=Roboto&display=swap"
-/>
+  href="https://fontlay.com/css2?family=Roboto&display=swap" />
 ```
 
 ## 📄 License

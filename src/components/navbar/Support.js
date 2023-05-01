@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { IoIosHeart } from "react-icons/io";
+import Link from 'next/link';
+import {IoIosHeart} from 'react-icons/io';
 
 export default function HSupport() {
   return (

@@ -1,16 +1,21 @@
 {
   "name": "fontlay",
   "version": "1.1.0",
-  "private": true,
+  "description": "A simple Google Fonts proxy and privacy-friendly. Prevent your users from being tracked and push your privacy.",
+  "author": "Farid Nizam",
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
-    "prettier": "npx prettier --write . \"src/**/*.js\"",
+    "prettier": "npx prettier --config .prettierrc --write \"src/**/*.js\"",
     "prettier:check": "npx prettier --check \"src/**/*.js\"",
-    "deploy:prod": "pnpm build && pm2 start ecosystem.config.js --env production"
+    "deploy:prod": "pnpm build && pm2 start ecosystem.config.js",
+    "deploy:dev": "pnpm build && pm2 start ecosystem.config.js --env development",
+    "deploy:delete": "pm2 delete ecosystem.config.js"
   },
   "dependencies": {
     "@next/font": "13.1.6",

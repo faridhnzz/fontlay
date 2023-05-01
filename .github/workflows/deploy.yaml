@@ -1,43 +1,88 @@
-name: Deployment
+name: Deployment CD
 on:
   workflow_dispatch:
   push:
     branches: [main]
 jobs:
-  Deploy:
+  Deployment:
+    name: 🔥 Deployment to Ponyo Server 🔥
     runs-on: ubuntu-latest
+    # strategy:
+    #   matrix:
+    #     node-version: [18.14.1]
+    #     pnpm-version: [7.27.1]
     steps:
-      - name: Deploy to ponyo server
+      # - uses: actions/checkout@v3
+
+      # # Build Next
+      # - name: Setup PNPM V.${{matrix.pnpm-version}}
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: ${{matrix.pnpm-version}}
+      # - name: Setup NodeJS V.${{ matrix.node-version }}
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      #     cache: 'pnpm'
+      # - name: NextJS Cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       ${{ github.workspace }}/.next/cache
+      #     key: |
+      #       ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml)') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml)') }}
+      # - name: Install dependencies 👨🏻‍💻
+      #   run: pnpm install --no-frozen-lockfile
+      # - name: Run Build 🛠️
+      #   run: pnpm build
+
+      # # Copy file to ponyo server
+      # - name: copy file via ssh password
+      #   uses: appleboy/scp-action@v0.1.4
+      #   with:
+      #     host: ${{ secrets.SSH_HOST }}
+      #     username: ${{ secrets.SSH_USERNAME }}
+      #     key: ${{ secrets.SSH_KEY }}
+      #     port: ${{ secrets.SSH_PORT }}
+      #     source: '.next,public,package.json,ecosystem.config.js'
+      #     target: your_server_target_folder_path
+
+      # Deploy SSH
+      - name: Deploy to ponyo server 🚀
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          port: 22
+          port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /root/project/fontlay
+            cd ${{ secrets.SSH_HOST }}/project/fontlay
             git pull origin main
             git status
+            printf "%s" "${{ secrets.FONTLAY_ENV }}" > "./.env"
+            pnpm deploy:delete
             pnpm install
             pnpm deploy:prod
 
       # Notification
-      - name: Success Notification
+      - name: Success Notification 🎉
         uses: sarisia/actions-status-discord@v1.12.0
         with:
           webhook: ${{ secrets.WEBHOOK_URL }}
-          status: "Success"
-          title: "fontlay front-end 🎉"
-          description: "Deploy fontlay front-end to ponyo server."
+          status: 'Success'
+          title: 'fontlay front-end 🎉'
+          description: 'Deploy fontlay front-end to ponyo server.'
           color: 0x99FF66
-          url: "https://fontlay.com"
-      - name: Failed Notification
+          url: 'https://fontlay.com'
+      - name: Failed Notification ❌
         if: ${{ failure() }}
         uses: sarisia/actions-status-discord@v1.12.0
         with:
           webhook: ${{ secrets.WEBHOOK_URL }}
-          status: "Failure"
-          content: "Hey <@&735080822465495090>"
-          title: "fontlay front-end 🥵"
-          description: "Failed to deploy fontlay front-end."
+          status: 'Failure'
+          content: 'Hey <@&735080822465495090>'
+          title: 'fontlay front-end ❌'
+          description: 'Failed to deploy fontlay front-end.'
           color: 0xF44336
