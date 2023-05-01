@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  fontlay-web:
+    build:
+      context: ../
+      dockerfile: .docker/Dockerfile
+    container_name: fontlay-web
+    restart: always
+    environment:
+      PORT: 3001
+      NODE_ENV: development
+    networks:
+      - nyt
+
+networks:
+  nyt:
+    external: true
