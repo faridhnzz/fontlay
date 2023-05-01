@@ -10,7 +10,6 @@ export default function Layout({children, navbarHide, footerHide}) {
           {children}
         </main>
         {footerHide ? '' : <Footer />}
-        {/* <Footer /> */}
       </div>
     </>
   );
