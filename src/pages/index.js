@@ -68,7 +68,7 @@ export default function Home() {
               </div>
             </div>
             <h3 className="pt-3 pl-3 justify-center items-center text-center">
-              <span className="cursor-default">Try it now:</span>
+              <span className="cursor-default font-sans">Try it now:</span>
               <Link
                 href="/css2?family=Roboto&display=swap"
                 className="link text-blue-600 pl-1">
