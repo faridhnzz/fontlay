@@ -9,7 +9,7 @@ export default function Document() {
           href={
             process.env.NODE_ENV === 'production'
               ? 'https://fontlay.com'
-              : 'htpp://localhost'
+              : process.env.NEXT_PUBLIC_FONTLAY_DEV
           }
         />
         <link
@@ -17,8 +17,8 @@ export default function Document() {
           href={`${
             process.env.NODE_ENV === 'production'
               ? 'https://fontlay.com'
-              : 'htpp://localhost'
-          }/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Saira:wght@200&display=swap`}
+              : process.env.NEXT_PUBLIC_FONTLAY_DEV
+          }/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap`}
         />
       </Head>
       <body>

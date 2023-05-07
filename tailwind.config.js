@@ -1,29 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class",
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     container: {
       center: true,
-      padding: "12px",
+      padding: '12px',
       screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
       },
     },
     extend: {
       fontFamily: {
-        Saira: ["Saira", "sans-serif"],
-        Jakarta: ["Plus Jakarta Sans", "sans-serif"],
+        Jakarta: ['Plus Jakarta Sans', 'sans-serif'],
       },
       width: {
-        120: "30rem",
-        128: "32rem",
+        120: '30rem',
+        128: '32rem',
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require('daisyui')],
   daisyui: {
     themes: false,
     styled: true,
@@ -31,6 +30,6 @@ module.exports = {
     utils: true,
     logs: false,
     rtl: false,
-    prefix: "",
+    prefix: '',
   },
 };

@@ -51,7 +51,7 @@ export default function Footer() {
             </span>{' '}
             - Made with ❤️ by{' '}
             <a
-              href="https://fayln.com/?utc"
+              href="https://fayln.com"
               rel="me"
               className="link-hover hover:text-teal-400">
               Farid Nizam

@@ -6,24 +6,33 @@ export default function Page404() {
     <Layout navbarHide={true} footerHide={true}>
       <div className="hero min-h-screen">
         <div className="hero-content text-center">
-          <div className="max-w-md font-Saira">
-            <div className="bg-yellow-200 stroke-yellow-200 rounded-full p-1 px-6 my-2"></div>
-            <h1 className="font-black text-9xl text-slate-200">404</h1>
-            <p className="text-gray-400 pt-3 pb-2 tracking-tight capitalize text-xl font-semibold">
-              Page Not Found
-            </p>
-            <div className="bg-yellow-200 stroke-yellow-200 rounded-full p-1 px-6 my-2"></div>
-            <p className="mt-4 text-gray-500 dark:text-gray-400 text-lg">
-              The stuff you were looking for doesn&apos;t exist.
-            </p>
-            <div className="py-6">
-              <Link
-                role="button"
-                className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring font-Jakarta"
-                href="/">
-                Go Back!
-              </Link>
+          <div className="max-w-md">
+            <div className="flex flex-col justify-center items-center">
+              <div className="relative">
+                <h1 className="relative text-9xl tracking-tighter-less text-white font-black">
+                  404
+                </h1>
+                <span className="absolute top-0 -ml-12 text-gray-300 font-semibold">
+                  Oops!
+                </span>
+              </div>
+              <p className="bg-indigo-600 px-3 text-md font-semibold rounded rotate-12 absolute">
+                Page Not Found
+              </p>
             </div>
+            <h2 className="mt-4 text-gray-500 dark:text-gray-300/80 text-lg">
+              The stuff you were looking for doesn&apos;t exist.
+            </h2>
+            <button className="mt-5">
+              <Link
+                href="/"
+                className="relative inline-block text-sm font-medium text-indigo-300 group active:text-indigo-400 focus:outline-none focus:ring">
+                <span className="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-indigo-600 group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                <span className="relative block px-8 py-3 bg-[#1A2238] border border-current text-sm">
+                  Go Home
+                </span>
+              </Link>
+            </button>
           </div>
         </div>
       </div>
