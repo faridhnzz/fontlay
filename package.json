@@ -1,6 +1,7 @@
 {
-  "name": "fontlay-ts",
-  "version": "0.1.0",
+  "name": "fontlay",
+  "description": "A simple Google Fonts proxy and privacy-friendly. Prevent your users from being tracked and push your privacy.",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,6 +12,11 @@
     "prettier": "npx prettier --config .prettierrc --write \"src/**/*.tsx\"",
     "prettier:check": "npx prettier --check \"src/**/*.tsx\"",
     "postbuild": "next-sitemap --config next-sitemap.config.js"
+  },
+  "author": "Farid Nizam",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "autoprefixer": "10.4.14",

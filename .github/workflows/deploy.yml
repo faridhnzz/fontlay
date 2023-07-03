@@ -37,7 +37,7 @@ jobs:
           cd dist
           tar -czf ${{ env.APP_BUILD_NAME }}.tar.gz .
           mv ${{ env.APP_BUILD_NAME }}.tar.gz .
-      - name: Upload Artifact ${{ env.APP_ARTIFACTS_NAME }} 🛸
+      - name: Upload Artifact ${{ env.APP_ARTIFACTS_NAME }} 🛸 
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.APP_ARTIFACTS_NAME }}
