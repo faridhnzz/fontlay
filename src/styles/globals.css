@@ -4,24 +4,24 @@
 
 @layer base {
   * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    @apply scroll-smooth selection:bg-cyan-400 selection:text-gray-950;
   }
 
   body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    @apply flex flex-col dark:text-white bg-slate-100 dark:bg-slate-900 min-h-screen font-Jakarta mx-auto transition duration-200;
+    @apply mx-auto min-h-screen bg-white font-Jakarta transition duration-200 dark:bg-gray-900 dark:text-white;
   }
 }
 
 @layer components {
-  .btn-theme {
-    @apply flex cursor-pointer items-center justify-center rounded-lg border-0 bg-slate-600 px-3 py-2 text-lg shadow-lg transition duration-200 hover:bg-slate-700 focus:outline-none dark:bg-yellow-500 dark:hover:bg-yellow-600 dark:shadow-lg dark:shadow-yellow-500/40;
-  }
-
   .mockup-code pre::before {
     @apply text-center md:mr-[2ch];
+  }
+
+  .nav {
+    @apply container sticky top-0 z-40 w-full px-4 py-3 md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto;
+  }
+
+  .nav-icon {
+    @apply rounded flex-none bg-[#181C1F] text-[#EAF2F7] transition duration-[230ms] hover:opacity-75 dark:bg-[#EAF2F7] dark:text-[#181C1F];
   }
 }

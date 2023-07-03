@@ -1,40 +1,41 @@
 {
-  "name": "fontlay",
-  "version": "1.1.0",
-  "description": "A simple Google Fonts proxy and privacy-friendly. Prevent your users from being tracked and push your privacy.",
-  "author": "Farid Nizam",
-  "license": "Apache-2.0",
+  "name": "fontlay-ts",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm postbuild && next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "postbuild": "next-sitemap --config next-sitemap.config.js",
-    "prettier": "npx prettier --config .prettierrc --write \"src/**/*.js\"",
-    "prettier:check": "npx prettier --check \"src/**/*.js\"",
-    "deploy:prod": "pnpm build && pm2 start ecosystem.config.js",
-    "deploy:dev": "pnpm build && pm2 start ecosystem.config.js --env development",
-    "deploy:delete": "pm2 delete ecosystem.config.js"
+    "prettier": "npx prettier --config .prettierrc --write \"src/**/*.tsx\"",
+    "prettier:check": "npx prettier --check \"src/**/*.tsx\"",
+    "postbuild": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
-    "@next/font": "13.1.6",
-    "daisyui": "^2.51.0",
-    "eslint": "8.34.0",
-    "eslint-config-next": "13.1.6",
-    "next": "13.1.6",
-    "next-seo": "^6.0.0",
+    "autoprefixer": "10.4.14",
+    "clsx": "^1.2.1",
+    "cssnano": "^6.0.1",
+    "eslint": "8.42.0",
+    "eslint-config-next": "13.4.4",
+    "next": "13.4.4",
+    "next-seo": "^6.1.0",
+    "next-sitemap": "^4.1.8",
+    "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.7.1"
+    "react-icons": "^4.9.0",
+    "tailwindcss": "3.3.2"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "next-sitemap": "^4.0.2",
+    "@types/node": "^20.2.5",
+    "@types/prettier": "^2.7.3",
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4",
+    "daisyui": "^3.0.1",
     "next-themes": "^0.2.1",
-    "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.4",
-    "tailwindcss": "^3.2.7"
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "typescript": "^5.1.3"
   }
 }
