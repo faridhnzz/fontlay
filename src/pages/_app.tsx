@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app';
 import type { ReactElement } from 'react';
 import { ThemeProvider } from 'next-themes';
 import Head from 'next/head';
-import { DefaultSeo } from 'next-seo';
+import { DefaultSeo, DefaultSeoProps } from 'next-seo';
 import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }: AppProps): ReactElement {
@@ -15,6 +15,13 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
       'A simple Google Fonts proxy. Prevent your users from being tracked and privacy-friendly. The Fonts CDN for developer.',
     url: 'https://fontlay.com',
   };
+  const noRobots: DefaultSeoProps =
+    process.env.NEXT_PUBLIC_NO_ROBOTS === 'y'
+      ? {
+          dangerouslySetAllPagesToNoFollow: true,
+          dangerouslySetAllPagesToNoIndex: true,
+        }
+      : {};
 
   return (
     <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
@@ -77,6 +84,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
               'fonts, font, free fonts, fonts cdn, fonts proxy, google fonts proxy, google fonts, developer, github, cdn',
           },
         ]}
+        {...noRobots}
       />
 
       <Component {...pageProps} />

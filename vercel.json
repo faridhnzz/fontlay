@@ -5,12 +5,6 @@
   "headers": [
     {
       "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "fontlay.com"
-        }
-      ],
       "headers": [
         {
           "key": "X-Robots-Tag",
