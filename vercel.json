@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "regions": ["sin1"],
+  "github": { "silent": true },
+  "headers": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "fontlay.com"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
+  ]
+}
