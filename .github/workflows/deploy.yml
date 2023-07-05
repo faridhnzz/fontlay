@@ -37,7 +37,7 @@ jobs:
           cd dist
           tar -czf ${{ env.APP_BUILD_NAME }}.tar.gz .
           mv ${{ env.APP_BUILD_NAME }}.tar.gz .
-      - name: Upload Artifact ${{ env.APP_ARTIFACTS_NAME }} 🛸 
+      - name: Upload Artifact ${{ env.APP_ARTIFACTS_NAME }} 🛸
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.APP_ARTIFACTS_NAME }}
@@ -76,7 +76,7 @@ jobs:
             cd ${{ env.APP_DIR }}
             tar -xzf ${{ env.APP_BUILD_NAME }}.tar.gz && rm -rf ${{ env.APP_BUILD_NAME }}.tar.gz
 
-      #pnpm install -no-frozen-lockfile
+      # pnpm install -no-frozen-lockfile
       # pm2:restart
 
       - name: Success Notification
@@ -102,7 +102,7 @@ jobs:
   clean-up:
     name: Clean up Artifact
     runs-on: ubuntu-latest
-    needs: [deploy]
+    needs: [deploy-prod]
     steps:
       - uses: geekyeggo/delete-artifact@v1
         with:
