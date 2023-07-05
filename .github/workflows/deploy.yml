@@ -16,14 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: '8'
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           cache: 'pnpm'
+      - uses: pnpm/action-setup@v2
+        with:
+          version: '8'
       - name: Create .env file
         # run: printf "%s" "${{ vars.FONTLAY_ENV }}" > ".env"
         run: |
@@ -41,12 +41,11 @@ jobs:
           mv next.config.js public dist package.json ${{ env.BUILD_DIR }} && mv .next ${{ env.BUILD_DIR }}
           cd ${{ env.BUILD_DIR }}
           tar -czf ${{ env.APP_BUILD_NAME }}.tar.gz .[^.]* *
-          mv ${{ env.APP_BUILD_NAME }}.tar.gz .
       - name: Upload Artifact ${{ env.APP_ARTIFACTS_NAME }} 🛸
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.APP_ARTIFACTS_NAME }}
-          path: ${{ env.APP_BUILD_NAME }}.tar.gz
+          path: ${{ env.BUILD_DIR }}/${{ env.APP_BUILD_NAME }}.tar.gz
 
   deploy-prod:
     name: Deploy Production
