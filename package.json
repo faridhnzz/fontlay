@@ -11,7 +11,11 @@
     "lint:fix": "next lint --fix",
     "prettier": "npx prettier --config .prettierrc --write \"src/**/*.tsx\"",
     "prettier:check": "npx prettier --check \"src/**/*.tsx\"",
-    "postbuild": "next-sitemap --config next-sitemap.config.js"
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
+    "pm2:prod": "pm2 start ecosystem.config.js",
+    "pm2:dev": "pm2 start ecosystem.config.js --env development",
+    "pm2:delete": "pm2 delete ecosystem.config.js",
+    "pm2:restart": "pm2 restart ecosystem.config.js"
   },
   "author": "Farid Nizam",
   "license": "MIT",
