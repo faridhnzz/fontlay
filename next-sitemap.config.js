@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://fontlay.com",
+  siteUrl: 'https://fontlay.com',
   generateRobotsTxt: true,
-  exclude: ["/faq"],
+  exclude: ['/status'],
   generateIndexSitemap: false,
 };

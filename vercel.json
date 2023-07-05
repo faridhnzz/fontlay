@@ -1,32 +1,14 @@
 {
-  "git": {
-    "deploymentEnabled": {
-      "main": false,
-      "staging": true
-    }
-  },
-  "github": {
-    "silent": true
-  },
+  "version": 2,
+  "regions": ["sin1"],
+  "github": { "silent": true },
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "headers": [
         {
           "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
+          "value": "noindex"
         }
       ]
     }

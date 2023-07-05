@@ -32,4 +32,4 @@ With
 
 ## 📄 License
 
-This Project is Under [Apache-2.0 license ](LICENSE) &copy; 2023 Farid Nizam
+This Project is Under [MIT license ](LICENSE) &copy; 2023 Farid Nizam

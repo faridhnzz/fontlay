@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "name": "Next: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm dev"
+    },
+    {
+      "name": "Next: debug client-side",
+      "type": "firefox",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "Next: debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm dev",
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    }
+  ]
+}
