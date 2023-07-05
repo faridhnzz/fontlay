@@ -76,7 +76,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script_stop: true
           script: |
-            rm -rf ${{ env.APP_DIR }}
             cd ${{ env.APP_DIR }}
             tar -xzf ${{ env.APP_BUILD_NAME }}.tar.gz && rm -rf ${{ env.APP_BUILD_NAME }}.tar.gz
 
