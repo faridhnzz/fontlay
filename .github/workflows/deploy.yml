@@ -8,7 +8,7 @@ env:
   APP_ARTIFACTS_NAME: fontlay-web
   APP_BUILD_NAME: build-web
   APP_DIR: /var/www/fontlay-web
-  BUILD_DIR: output
+  BUILD_DIR: dist
 
 jobs:
   build:
@@ -37,15 +37,14 @@ jobs:
       - name: Build App Artifacts 🚧
         run: |
           mkdir ${{ env.BUILD_DIR }}
-          mv .env dist && mv ecosystem.config.js ${{ env.BUILD_DIR }}
-          mv next.config.js public dist package.json ${{ env.BUILD_DIR }} && mv .next ${{ env.BUILD_DIR }}
-          cd ${{ env.BUILD_DIR }}
-          tar -czf ${{ env.APP_BUILD_NAME }}.tar.gz .[^.]* *
+          mv .env ecosystem.config.js ${{ env.BUILD_DIR }}
+          mv next.config.js public package.json .next ${{ env.BUILD_DIR }}
+          tar -czf ${{ env.APP_BUILD_NAME }}.tar.gz ${{ env.BUILD_DIR }}
       - name: Upload Artifact ${{ env.APP_ARTIFACTS_NAME }} 🛸
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.APP_ARTIFACTS_NAME }}
-          path: ${{ env.BUILD_DIR }}/${{ env.APP_BUILD_NAME }}.tar.gz
+          path: ${{ env.APP_BUILD_NAME }}.tar.gz
 
   deploy-prod:
     name: Deploy Production
@@ -77,10 +76,10 @@ jobs:
           script_stop: true
           script: |
             cd ${{ env.APP_DIR }}
+            rm -rf dist
             tar -xzf ${{ env.APP_BUILD_NAME }}.tar.gz && rm -rf ${{ env.APP_BUILD_NAME }}.tar.gz
-
-      # pnpm install -no-frozen-lockfile
-      # pm2:restart
+            pnpm install -no-frozen-lockfile
+            pnpm pm2:restart
 
       - name: Success Notification
         uses: sarisia/actions-status-discord@v1.12.0
