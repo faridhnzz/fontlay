@@ -78,6 +78,7 @@ jobs:
             cd ${{ env.APP_DIR }}
             rm -rf dist
             tar -xzf ${{ env.APP_BUILD_NAME }}.tar.gz && rm -rf ${{ env.APP_BUILD_NAME }}.tar.gz
+            cd ${{ env.APP_DIR }}/dist
             pnpm install -no-frozen-lockfile
             pnpm pm2:restart
 
