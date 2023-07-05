@@ -37,7 +37,7 @@ jobs:
       - name: Build App Artifacts 🚧
         run: |
           mkdir ${{ env.BUILD_DIR }}
-          mv .env ecosystem.config.js ${{ env.BUILD_DIR }}
+          mv .env .nvmrc ecosystem.config.js ${{ env.BUILD_DIR }}
           mv next.config.js public package.json .next ${{ env.BUILD_DIR }}
           tar -czf ${{ env.APP_BUILD_NAME }}.tar.gz ${{ env.BUILD_DIR }}
       - name: Upload Artifact ${{ env.APP_ARTIFACTS_NAME }} 🛸
@@ -79,6 +79,7 @@ jobs:
             rm -rf dist
             tar -xzf ${{ env.APP_BUILD_NAME }}.tar.gz && rm -rf ${{ env.APP_BUILD_NAME }}.tar.gz
             cd ${{ env.APP_DIR }}/dist
+            nvm use
             pnpm install -no-frozen-lockfile
             pnpm pm2:restart
 
