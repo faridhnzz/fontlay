@@ -8,6 +8,7 @@ env:
   APP_ARTIFACTS_NAME: fontlay-web
   APP_BUILD_NAME: build-web
   APP_DIR: /var/www/fontlay-web
+  BUILD_DIR: output
 
 jobs:
   build:
@@ -23,19 +24,23 @@ jobs:
         with:
           node-version: '18.x'
           cache: 'pnpm'
-      - name: File .env
-        run: printf "%s" "${{ vars.FONTLAY_ENV }}" > ".env"
+      - name: Create .env file
+        # run: printf "%s" "${{ vars.FONTLAY_ENV }}" > ".env"
+        run: |
+          touch .env
+          echo PORT=3001 >> .env
+          echo NEXT_TELEMETRY_DISABLED=1 >> .env
       - name: Install dependencies 👨🏻‍💻
         run: pnpm install -no-frozen-lockfile
       - name: Build Apps 🚦
         run: pnpm build
       - name: Build App Artifacts 🚧
         run: |
-          mkdir dist
-          mv .env dist && mv ecosystem.config.js dist
-          mv next.config.js public dist package.json dist && mv .next dist
-          cd dist
-          tar -czf ${{ env.APP_BUILD_NAME }}.tar.gz .
+          mkdir ${{ env.BUILD_DIR }}
+          mv .env dist && mv ecosystem.config.js ${{ env.BUILD_DIR }}
+          mv next.config.js public dist package.json ${{ env.BUILD_DIR }} && mv .next ${{ env.BUILD_DIR }}
+          cd ${{ env.BUILD_DIR }}
+          tar -czf ${{ env.APP_BUILD_NAME }}.tar.gz .[^.]* *
           mv ${{ env.APP_BUILD_NAME }}.tar.gz .
       - name: Upload Artifact ${{ env.APP_ARTIFACTS_NAME }} 🛸
         uses: actions/upload-artifact@v3
@@ -63,7 +68,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           source: ${{ env.APP_BUILD_NAME }}.tar.gz
           target: ${{ env.APP_DIR }}
-      - name: Deploy to Ponyo-srv
+      - name: Deploy to Ponyo
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
