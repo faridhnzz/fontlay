@@ -1,5 +1,4 @@
 import '~/styles/globals.css';
-import '~/styles/custom.css';
 import type { AppProps } from 'next/app';
 import type { ReactElement } from 'react';
 import { ThemeProvider } from 'next-themes';
@@ -24,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
       : {};
 
   return (
-    <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
+    <ThemeProvider attribute="class" enableSystem={false} defaultTheme="light">
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -81,7 +80,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
           {
             property: 'keywords',
             content:
-              'fonts, font, free fonts, fonts cdn, fonts proxy, google fonts proxy, google fonts, developer, github, cdn',
+              'fonts, font, free fonts, fonts cdn, fonts proxy, google fonts proxy, google fonts, developer, github, cdn, seo, open source, fonts optimization',
           },
         ]}
         {...noRobots}

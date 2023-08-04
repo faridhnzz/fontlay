@@ -13,8 +13,16 @@
 }
 
 @layer components {
-  .mockup-code pre::before {
+  .mockup-window pre::before {
     @apply text-center md:mr-[2ch];
+  }
+
+  .mockup-window {
+    @apply bg-[#dedede] dark:bg-slate-700 pb-6;
+  }
+
+  .footer {
+    @apply gap-y-6;
   }
 
   .nav {
@@ -24,4 +32,48 @@
   .nav-icon {
     @apply rounded flex-none bg-[#181C1F] text-[#EAF2F7] transition duration-[230ms] hover:opacity-75 dark:bg-[#EAF2F7] dark:text-[#181C1F];
   }
+
+  .nav-bottom {
+    @apply min-h-[calc(98vh-292px)];
+  }
+
+  .status-container {
+    @apply container relative flex-grow w-full mx-auto nav-bottom;
+  }
+
+  .title-border {
+    @apply border-cyan-600 border-b-[3px] mx-auto w-[12rem] pb-3 text-center text-2xl font-bold tracking-tight;
+  }
+}
+
+/* Scrollbar styles */
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 14px;
+  border: 3px solid rgb(8 47 73 / 1);
+}
+
+.gradient {
+  border-bottom: 3px solid transparent;
+  -o-border-image: linear-gradient(
+    0.25turn,
+    rgb(251, 113, 133),
+    rgb(217, 70, 239),
+    rgb(99, 102, 241)
+  );
+  border-image: linear-gradient(
+    0.55turn,
+    rgb(251, 113, 133),
+    rgb(217, 70, 239),
+    rgb(99, 102, 241)
+  );
+  border-image-slice: 1;
 }

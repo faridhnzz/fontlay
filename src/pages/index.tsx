@@ -1,113 +1,100 @@
 import Layout from '~components/layout';
 import Anchor from '~components/other/Anchor';
+import BgGradient from '~components/layout/BgGradient';
 import Hero from '@layout/Hero';
 import { Card } from '@other/Card';
-import { Grid2Cols } from '@other/Grid';
-import { RiGitRepositoryPrivateFill } from 'react-icons/ri';
-import {
-  FaCompress,
-  FaGlobeAsia,
-  FaLink,
-  FaCode,
-  FaServer,
-} from 'react-icons/fa';
-import { BiHide } from 'react-icons/bi';
-import { isProd } from '~/utils';
+import { Grid1x2Cols } from '@other/Grid';
 
 const Features = [
-  // {
-  //   icon: <FaServer />,
-  //   title: 'Hosted on Hybrid Server',
-  //   desc: 'Fontlay is hosted on hybrid servers and not on a shared cloud.',
-  // },
   {
-    icon: <FaGlobeAsia />,
+    icon: '🌏',
     title: 'Globally',
-    desc: "Fonts and API requests cache at CDN with logging turned off and it's superfast.",
+    desc: "Fonts and API cache at CDN with logging turned off and it's superfast.",
   },
   {
-    icon: <FaCompress />,
+    icon: '📦',
     title: 'Compression',
     desc: 'Using gzip & brotli for file compression.',
   },
   {
-    icon: <FaCode />,
+    icon: '📄',
     title: 'CSS Minified',
     desc: 'CSS files are optimized and minified.',
   },
-  // {
-  //   icon: <FaLink />,
-  //   title: 'Enpoint',
-  //   desc: 'CSS & Font files are in the same endpoint.',
-  // },
   {
-    icon: <RiGitRepositoryPrivateFill />,
+    icon: '🔐',
     title: 'Private and Secure',
     desc: 'All traffic on this site is encrypted and hide your IP from Google.',
   },
 ];
 
 export default function HomePage() {
-  const nav = isProd ? false : true;
   return (
     <>
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
-        <div className="h-56 bg-gradient-to-br from-primary to-purple-400 blur-[106px] dark:from-blue-700"></div>
-        <div className="h-32 bg-gradient-to-r from-cyan-400 to-sky-300 blur-[106px] dark:to-indigo-600"></div>
-      </div>
-      <Layout navbar={nav}>
-        <Hero>
-          <div className="flex flex-col">
+      <BgGradient />
+      <Layout>
+        <Hero id="landing">
+          <div className="flex flex-col md:py-20">
             <hgroup className="text-center cursor-default">
-              <h1 className="flex justify-center bg-gradient-to-r from-[#3aa9f8] to-[#2a5bce] bg-clip-text text-5xl font-extrabold uppercase tracking-tighter text-transparent md:text-5xl lg:text-7xl">
+              <h1 className="bg-gradient-to-r from-[#3aa9f8] to-[#2a5bce] bg-clip-text text-5xl font-black uppercase tracking-tighter text-transparent md:text-5xl lg:text-7xl">
                 fontlay
               </h1>
-              <h3 className="flex py-6 text-xl text-gray-600 dark:text-gray-300">
-                A simple Google Fonts proxy. <br className="hidden md:inline" />{' '}
+              <h2 className="py-6 text-2xl font-Figtree text-gray-600/95 dark:text-gray-300 antialiased tracking-normal">
+                A simple Google Fonts proxy. <br className="hidden md:inline" />
                 Prevent your users from being tracked and privacy-friendly.
-              </h3>
+              </h2>
             </hgroup>
 
-            <div className="pt-8 text-center cursor-default">
-              <div className="mockup-code">
+            <div className="py-8 text-center cursor-default">
+              <article className="mockup-window">
                 <p className="text-lg font-bold md:text-xl">
                   Change Google Font
                 </p>
-                <div className="mx-auto mt-5 max-w-sm rounded bg-[#001f26] py-4 text-white md:mx-auto lg:mx-8 lg:max-w-lg">
+                <div className="mx-auto mt-5 max-w-sm rounded bg-gray-900 dark:bg-[#001f26] py-4 text-white lg:max-w-lg">
                   <code className="text-sm cursor-text sm:text-lg md:text-xl">
                     https://fonts.googleapis.com
                   </code>
                 </div>
                 <p className="my-5 text-lg font-bold md:text-xl">With</p>
-                <div className="mx-auto mt-5 max-w-sm rounded bg-[#001f26] py-4 text-white md:mx-auto lg:mx-8 lg:max-w-lg">
+                <div className="mx-auto mt-5 max-w-sm rounded bg-gray-900 dark:bg-[#001f26] py-4 text-white lg:max-w-lg">
                   <code className="text-sm cursor-text sm:text-lg md:text-xl">
                     https://fontlay.com
                   </code>
                 </div>
+                <p className="mt-5 ml-4 font-Figtree max-w-sm">
+                  💡<span className="font-bold">Notes:</span> Also support with{' '}
+                  <span className="text-cyan-500 font-semibold">
+                    Material Icons
+                  </span>
+                  .
+                </p>
+              </article>
+            </div>
+
+            <div className="mx-auto">
+              <div className="md:inline-flex">
+                <p className="mr-1 font-medium cursor-default">Examples:</p>
+                <div className="font-mono font-light normal-case">
+                  <Anchor
+                    href="/css2?family=Roboto&display=swap"
+                    className="normal-case text-blue-600 link"
+                    newWindow>
+                    https://fontlay.com/css2?family=Roboto&display=swap
+                  </Anchor>
+                </div>
               </div>
             </div>
-            <h3 className="is-center justify-center pt-3 pl-3 text-center">
-              <span className="font-sans cursor-default">Try it now:</span>
-              <Anchor
-                href="/css2?family=Roboto&display=swap"
-                className="pl-1 text-blue-600 link"
-                newWindow>
-                https://fontlay.com/css2?family=Roboto&display=swap
-              </Anchor>
-            </h3>
           </div>
         </Hero>
 
-        <Hero>
-          <div className="max-w-4xl cursor-default">
+        <Hero id="features">
+          <div className="max-w-4xl cursor-default py-28">
             <div className="my-6 text-center">
-              <h2 className="gradient mx-auto mt-1 w-[11rem] pb-3 text-4xl tracking-tight font-bold">
+              <p className="text-4xl tracking-tight font-bold title-border w-[11rem] mx-auto">
                 Features
-              </h2>
+              </p>
             </div>
-            <Grid2Cols>
+            <Grid1x2Cols>
               {Features.map((i, index) => {
                 return (
                   <Card
@@ -118,7 +105,7 @@ export default function HomePage() {
                   />
                 );
               })}
-            </Grid2Cols>
+            </Grid1x2Cols>
           </div>
         </Hero>
       </Layout>

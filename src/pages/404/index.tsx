@@ -3,7 +3,7 @@ import Layout from '~components/layout';
 
 export default function Page404() {
   return (
-    <Layout navbar={false} footer={false}>
+    <Layout title="Page Not Found" navbar={false} footer={false}>
       <div className="hero min-h-screen">
         <div className="hero-content text-center">
           <div className="max-w-md">

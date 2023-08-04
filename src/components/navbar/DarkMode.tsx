@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 
-export default function NavDarkMode() {
+export default function NavDarkMode({ className, ...props }: any) {
   const [mounted, setMounted] = useState<'light' | 'dark' | undefined>(
     undefined
   );
@@ -17,9 +17,7 @@ export default function NavDarkMode() {
   };
 
   return (
-    <button
-      className="inline-flex items-center justify-center flex-shrink-0 font-medium text-gray-800 rounded-full h-9 w-9 hover:bg-gray-300 dark:text-gray-200 dark:hover:bg-gray-800"
-      onClick={toggleTheme}>
+    <button onClick={toggleTheme} className={className} {...props}>
       <span className="sr-only">Toggle dark mode</span>
       {mounted === 'dark' ? <Sun /> : <Moon />}
     </button>
