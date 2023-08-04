@@ -2,15 +2,19 @@ import Navbar from '~components/navbar';
 import Footer from '~components/footer';
 import { LayoutProps } from '~types/components';
 import cn from 'clsx';
+import { NextSeo } from 'next-seo';
 
 export default function Layout({
   children,
+  title,
   className,
   navbar = true,
   footer = true,
+  noindex = false,
 }: LayoutProps) {
   return (
     <>
+      <NextSeo title={title} noindex={noindex} />
       {navbar === true && <Navbar />}
       <main
         className={cn(
@@ -23,8 +27,3 @@ export default function Layout({
     </>
   );
 }
-
-/**
- * bg-gradient-to-br from-slate-900/[.15] via-purple-900 to-slate-900
- * bg-gradient-to-b from-violet-600/[.15] via-transparent
- */

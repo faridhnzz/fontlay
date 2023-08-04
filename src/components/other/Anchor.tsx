@@ -15,7 +15,6 @@ const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(function (
   if (newWindow)
     return (
       <Link ref={forwardedRef} href={href} rel={rel} target="_blank" {...props}>
-        <span className="sr-only">(opens in a new tab)</span>
         {children}
       </Link>
     );
