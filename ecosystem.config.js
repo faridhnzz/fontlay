@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'fontlay-web',
+      name: 'fontlay',
       script: 'node_modules/next/dist/bin/next',
       args: 'start -p 3001',
       instances: 2,
@@ -10,6 +10,7 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 3001,
+        NEXT_TELEMETRY_DISABLED: 1
       },
       env_development: {
         NODE_ENV: 'development',
