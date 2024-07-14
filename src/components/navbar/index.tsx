@@ -18,12 +18,9 @@ const NavLink: NavLinkProps[] = [
     path: '/',
   },
   {
-    label: 'Docs',
-    path: '#',
-  },
-  {
     label: 'Status',
-    path: '#',
+    path: 'https://fontlay.statuspage.io/',
+    openWindows: true,
   },
 ];
 
@@ -108,7 +105,7 @@ export default function Navbar() {
                     className={
                       pathname === i.path
                         ? 'font-semibold text-blue-600 dark:text-blue-500 md:py-6'
-                        : 'font-medium text-gray-500 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500 md:py-6'
+                        : 'font-medium text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-500 md:py-6'
                     }>
                     {i.label}
                   </Anchor>

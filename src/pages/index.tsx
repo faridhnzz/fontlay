@@ -9,22 +9,22 @@ const Features = [
   {
     icon: '🌏',
     title: 'Globally',
-    desc: "Fonts and API cache at CDN with logging turned off and it's superfast.",
+    desc: 'Experience seamless API and WebFont requests through global CDN without any logging. Enjoy superfast performance worldwide.',
   },
   {
     icon: '📦',
-    title: 'Compression',
-    desc: 'Using gzip & brotli for file compression.',
+    title: 'Smaller File Size',
+    desc: 'CSS files are optimized and minified, utilizing gzip and Brotli compression to reduce file sizes.',
   },
   {
-    icon: '📄',
-    title: 'CSS Minified',
-    desc: 'CSS files are optimized and minified.',
+    icon: '🎭',
+    title: 'Completely Anonymous',
+    desc: 'We do not log or track any user data, and we do not use any cookies.',
   },
   {
     icon: '🔐',
     title: 'Private and Secure',
-    desc: 'All traffic on this site is encrypted and hide your IP from Google.',
+    desc: 'All site traffic is encrypted, keeping your IP address and personal information private and secure.',
   },
 ];
 
@@ -77,7 +77,7 @@ export default function HomePage() {
                 <div className="font-mono font-light normal-case">
                   <Anchor
                     href="/css2?family=Roboto&display=swap"
-                    className="normal-case text-blue-600 link"
+                    className="normal-case text-blue-600 link hover:text-blue-800"
                     newWindow>
                     https://fontlay.com/css2?family=Roboto&display=swap
                   </Anchor>

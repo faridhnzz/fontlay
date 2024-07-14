@@ -13,7 +13,9 @@ export function Card({ title, desc, icon }: CardProps) {
         <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
           {title}
         </h2>
-        <p className="flex-grow pt-1 text-base tracking-wide">{desc}</p>
+        <p className="flex-grow pt-1 text-base tracking-wide dark:text-slate-300 text-slate-600 font-medium">
+          {desc}
+        </p>
       </article>
     </div>
   );

@@ -15,6 +15,12 @@ export default function Document() {
           rel="stylesheet"
           href={`${fontsUrl}/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Figtree:wght@400;500;600;700;800&display=swap`}
         />
+        {isProd && (
+          <script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="1ac81cd4-6b1f-4e12-9013-3ae2ca363e66"></script>
+        )}
       </Head>
       <body>
         <Main />
