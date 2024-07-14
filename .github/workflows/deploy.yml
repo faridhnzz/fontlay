@@ -3,6 +3,11 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+      - '.gitattributes'
+      - '.vscode/**'
 
 env:
   APP_ARTIFACTS_NAME: fontlay-web
